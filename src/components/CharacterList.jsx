@@ -28,7 +28,7 @@ export default function CharacterList(props) {
       } else setPage(1);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [list]);
+  }, [JSON.stringify(list)]);
 
   useEffect(() => {
     setTotalCount(null);
