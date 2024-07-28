@@ -1,9 +1,15 @@
-// CharacterDetail.js
-import React, { useState, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
-import '../styles/characterdetail.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faVenusMars, faMapMarkerAlt, faGlobe, faCalendarAlt, faUser, faInfoCircle } from '@fortawesome/free-solid-svg-icons';
+import React, { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
+import "../styles/characterdetail.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faVenusMars,
+  faMapMarkerAlt,
+  faGlobe,
+  faCalendarAlt,
+  faUser,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
 import { BeatLoader } from "react-spinners";
 
 export default function CharacterDetail() {
@@ -21,7 +27,7 @@ export default function CharacterDetail() {
         setCharacter(data);
         setLoading(false);
       } catch (error) {
-        console.error('Error fetching character details:', error);
+        console.error("Error fetching character details:", error);
         setLoading(false);
       }
     };
@@ -32,13 +38,13 @@ export default function CharacterDetail() {
   if (loading) {
     return (
       <div className="loading-container">
-      <BeatLoader
-        color={"grey"}
-        loading={loading}
-        size={50}
-        aria-label="Loading..."
-        data-testid="loader"
-      />
+        <BeatLoader
+          color={"grey"}
+          loading={loading}
+          size={50}
+          aria-label="Loading..."
+          data-testid="loader"
+        />
       </div>
     );
   }
@@ -63,7 +69,9 @@ export default function CharacterDetail() {
       </div>
       <div className="character-details">
         <div className="character-status">
-          <span className={`status-dot ${character.status.toLowerCase()}`}></span>
+          <span
+            className={`status-dot ${character.status.toLowerCase()}`}
+          ></span>
           <span className="character-status-text">{character.status}</span>
         </div>
         <ul className="character-info-list">
@@ -83,7 +91,7 @@ export default function CharacterDetail() {
           </li>
           <li>
             <FontAwesomeIcon icon={faGlobe} className="icon" />
-            <strong>Origin:</strong>{' '}
+            <strong>Origin:</strong>{" "}
             <a
               href={character.origin.url}
               target="_blank"
@@ -94,7 +102,7 @@ export default function CharacterDetail() {
           </li>
           <li>
             <FontAwesomeIcon icon={faMapMarkerAlt} className="icon" />
-            <strong>Location:</strong>{' '}
+            <strong>Location:</strong>{" "}
             <a
               href={character.location.url}
               target="_blank"
@@ -105,7 +113,7 @@ export default function CharacterDetail() {
           </li>
           <li>
             <FontAwesomeIcon icon={faCalendarAlt} className="icon" />
-            <strong>Created On:</strong>{' '}
+            <strong>Created On:</strong>{" "}
             {new Date(character.created).toLocaleDateString()}
           </li>
         </ul>

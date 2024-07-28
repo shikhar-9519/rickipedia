@@ -1,13 +1,13 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import '../styles/dropdown.css'; // Import the CSS file for styling
+import React from "react";
+import PropTypes from "prop-types";
+import "../styles/dropdown.css";
 
-// Dropdown component
 const Dropdown = ({ options, heading, onChange, id }) => {
-
   const handleChange = (event) => {
     const selectedValue = event.target.value;
-    const selectedOption = options.find(option => option.value === selectedValue);
+    const selectedOption = options.find(
+      (option) => option.value === selectedValue
+    );
     if (selectedOption) {
       onChange(id, selectedOption.value);
     }
@@ -27,7 +27,6 @@ const Dropdown = ({ options, heading, onChange, id }) => {
   );
 };
 
-// PropTypes for validation
 Dropdown.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({

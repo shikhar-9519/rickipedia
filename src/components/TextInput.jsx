@@ -1,18 +1,16 @@
-import React, { useRef } from 'react';
-import PropTypes from 'prop-types';
-import '../styles/textinput.css';
+import React, { useRef } from "react";
+import PropTypes from "prop-types";
+import "../styles/textinput.css";
 
 const TextInput = ({ id, heading, placeholder, onChange }) => {
-  const debounceTimeout = 500; // Debounce timeout in milliseconds
+  const debounceTimeout = 500;
 
-  // Store the debounced function in a ref to avoid recreation on every render
   const debouncedOnChangeRef = useRef(
     debounce((id, value) => onChange(id, value), debounceTimeout)
   );
 
   const handleChange = (event) => {
     const inputValue = event.target.value;
-    // Use the debounced function stored in the ref
     debouncedOnChangeRef.current(id, inputValue);
   };
 
@@ -29,7 +27,6 @@ const TextInput = ({ id, heading, placeholder, onChange }) => {
   );
 };
 
-// Debounce function
 const debounce = (func, timeout) => {
   let timer;
   return (...args) => {
@@ -38,17 +35,15 @@ const debounce = (func, timeout) => {
   };
 };
 
-// PropTypes for validation
 TextInput.propTypes = {
-  id: PropTypes.string.isRequired, // Added id validation
+  id: PropTypes.string.isRequired,
   heading: PropTypes.string.isRequired,
   placeholder: PropTypes.string,
   onChange: PropTypes.func.isRequired,
 };
 
-// Default props
 TextInput.defaultProps = {
-  placeholder: '',
+  placeholder: "",
 };
 
 export default TextInput;

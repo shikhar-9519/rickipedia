@@ -16,7 +16,8 @@ export default function ProfileCard(props) {
         <div className="card-content">
           <div className="align-items-start flex-column">
             <div className="card-heading">
-            <EllipsisText text={name} length={17}/></div>
+              <EllipsisText text={name} length={17} />
+            </div>
             <div className="align-items-center">
               <div
                 className="status-icon"
@@ -40,7 +41,8 @@ export default function ProfileCard(props) {
           </div>
           <div className="card-location-content align-items-start">
             <div className="typography-3 text-grey ">Last known location:</div>
-            <div><EllipsisText text={location.name} length={35}/>
+            <div>
+              <EllipsisText text={location.name} length={35} />
             </div>
           </div>
         </div>
